@@ -1,0 +1,155 @@
+<doctype html>
+	<html>
+	<head>
+		<title>Whatsapp Project</title>
+		<style>
+
+		.footer {
+		   position: fixed;
+		   left: 0;
+		   bottom: 0;
+		   width: 100%;
+		   height: 60px;
+		   background-color: #bfbfbf;
+		}
+
+		.our {
+		   background-color: #ccff66;
+		   color: black;
+		   text-align: right;
+		   border-radius: 5px;
+		   border-style: groove;
+		   padding: 10px;
+		   margin: 10px 0;
+		}
+
+		.their {
+		   background-color: #f1f1f1;
+		   color: black;
+		   text-align: left;
+		   border-radius: 5px;
+		   border-style: groove;
+		   padding: 10px;
+		   margin: 10px 0;
+		}
+
+		.ChatScreen {
+		   left: 0;
+		   bottom: 200px;
+		   width: 100%;
+		   height: 90%;
+		   background-color: #ffffb3;
+		}
+
+		.Title {
+		   width: 100%;
+		   height: 50px;
+		   background-color: #0099ff;
+		   color: white;
+		   text-align: left;
+		   font-size: 30px;
+		}
+
+		.button {
+		   background-color: #e6e6e6;
+		   border-radius: 5px;
+		   border-style: groove;
+		   padding: 10px;
+		   margin: 10px;
+		   width: 20%;
+		}
+
+		#text {
+		   border-radius: 5px;
+		   border-style: groove;
+		   margin: 10px;
+		   width: 75%;
+		   height: 40px;
+		}
+				
+		</style>
+	</head>
+	<body>
+		<div class="Title">
+				<h4 style=" margin-left: 70px; padding-top: 10px;">Messages/Burak Arslan</h4>
+		</div>
+		<div class="ChatScreen">	
+			<div class="Messages" id="texts" style=" margin-bottom: 75px;">
+
+				<div class="their">
+					<p>Hello Anýl, how are you?</p>
+					<span class="time-left">13:42</span>
+				</div>
+				<div class="our">
+					<p>I'm good, how about you?</p>
+					<span class="time-right">13:44</span>
+				</div>
+				<div class="their">
+					<p>I'm great actually, were you able to finish the project I gave you?</p>
+					<span class="time-left">13:50</span>
+				</div>
+				<div class="our">
+					<p>It's almost done I will be able to deliver it to you on monday.</p>
+					<span class="time-right">13:52</span>
+				</div>
+				<div class="their">
+					<p>That's good to hear. Did you find polymer challenging?</p>
+					<span class="time-left">13:55</span>
+				</div>
+
+			</div>
+
+			<div class="footer">
+
+				<input type="text" id="text"></input>
+
+				<button class="button"  align="right" type="button" onclick="send()">Send</button>
+							
+			</div>
+		</div>
+
+	<script>
+
+	function send() {
+
+	var d = new Date();
+	var b = d.getHours();
+	var c = d.getMinutes();
+	var content=document.getElementById('text').value;
+
+	 if( content=="" || content==" " || content==null)
+	 {
+
+	 }
+	 else
+	 {
+	 	var a = document.createElement('div');
+		a.className = 'our';
+
+		var myp =  document.createElement('p');
+		var node = document.createTextNode(content);
+		myp.appendChild(node);
+
+
+		var mys =  document.createElement('span');
+		var date = document.createTextNode(b + ":" + c);
+		mys.appendChild(date);
+
+
+		a.appendChild(myp);
+		a.appendChild(mys);
+
+		var s = document.getElementById('texts');
+		  s.appendChild(a);
+
+		var scrollingElement = (document.scrollingElement || document.body);
+		scrollingElement.scrollTop = scrollingElement.scrollHeight;
+
+		document.getElementById('text').value="";
+
+	 }
+	}
+	</script>	
+
+	</body>
+	</html>
